@@ -3,15 +3,13 @@ import model.User;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
 
-import java.util.Random;
-
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 public class UserCreatingTest extends BaseTest{
 
     @Test
     public void successfulCreating() {
-        User user = randomUser();
+        User user = Util.randomUser();
 
         Response response = Util.createUser(user);
 
@@ -26,7 +24,7 @@ public class UserCreatingTest extends BaseTest{
 
     @Test
     public void creatingExistingUser() {
-        User user = randomUser();
+        User user = Util.randomUser();
 
         Response firstResponse = Util.createUser(user);
 
@@ -55,11 +53,4 @@ public class UserCreatingTest extends BaseTest{
                 .and()
                 .statusCode(HttpStatus.SC_FORBIDDEN);
     }
-
-    private User randomUser() {
-        Random random = new Random();
-        String email = "user" + random.nextInt(10000000) + "@yandex.ru";
-        return new User(email, "1234567", "John");
-    }
-
 }
