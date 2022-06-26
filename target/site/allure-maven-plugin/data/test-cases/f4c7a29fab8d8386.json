@@ -1,0 +1,56 @@
+{
+  "uid" : "f4c7a29fab8d8386",
+  "name" : "successfulBurgerAuthorized",
+  "fullName" : "OrderCreatingTest.successfulBurgerAuthorized",
+  "historyId" : "506968f54b2b8291506baf7433dec69",
+  "time" : {
+    "start" : 1656238611915,
+    "stop" : 1656238614612,
+    "duration" : 2697
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "OrderCreatingTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "successfulBurgerAuthorized"
+  }, {
+    "name" : "suite",
+    "value" : "OrderCreatingTest"
+  }, {
+    "name" : "host",
+    "value" : "MacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "60734@MacBook-Pro.local.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "f4c7a29fab8d8386.json",
+  "parameterValues" : [ ]
+}

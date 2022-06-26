@@ -1,0 +1,56 @@
+{
+  "uid" : "b7414ae36e6b78fa",
+  "name" : "successfulCreating",
+  "fullName" : "UserCreatingTest.successfulCreating",
+  "historyId" : "3f58e28709a6654a0e263dbcd813b02f",
+  "time" : {
+    "start" : 1656238607333,
+    "stop" : 1656238608231,
+    "duration" : 898
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "UserCreatingTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "successfulCreating"
+  }, {
+    "name" : "suite",
+    "value" : "UserCreatingTest"
+  }, {
+    "name" : "host",
+    "value" : "MacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "60734@MacBook-Pro.local.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b7414ae36e6b78fa.json",
+  "parameterValues" : [ ]
+}
