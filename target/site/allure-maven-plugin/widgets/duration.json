@@ -1,0 +1,171 @@
+[ {
+  "uid" : "59bde3aed67400b7",
+  "name" : "unsuccessfulUpdateWithoutAuthorization[1]",
+  "time" : {
+    "start" : 1656238557271,
+    "stop" : 1656238563533,
+    "duration" : 6262
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cae5b7eb8fd80fef",
+  "name" : "successfulUpdate[1]",
+  "time" : {
+    "start" : 1656238563536,
+    "stop" : 1656238577517,
+    "duration" : 13981
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "68e40e5651114853",
+  "name" : "unauthorized",
+  "time" : {
+    "start" : 1656238617608,
+    "stop" : 1656238619848,
+    "duration" : 2240
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bb2549e58222d902",
+  "name" : "successfulUpdate[2]",
+  "time" : {
+    "start" : 1656238596486,
+    "stop" : 1656238604136,
+    "duration" : 7650
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "382be224ed581cb0",
+  "name" : "unsuccessfulUpdateWithoutAuthorization[0]",
+  "time" : {
+    "start" : 1656238546518,
+    "stop" : 1656238554726,
+    "duration" : 8208
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5955d7ad13c8d560",
+  "name" : "successfulBurgerjUnauthorized",
+  "time" : {
+    "start" : 1656238609295,
+    "stop" : 1656238611913,
+    "duration" : 2618
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3aafe90beaa2fa5d",
+  "name" : "unsuccessfulLogin",
+  "time" : {
+    "start" : 1656238532774,
+    "stop" : 1656238542543,
+    "duration" : 9769
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f4c7a29fab8d8386",
+  "name" : "successfulBurgerAuthorized",
+  "time" : {
+    "start" : 1656238611915,
+    "stop" : 1656238614612,
+    "duration" : 2697
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5bffd1e89306ceaf",
+  "name" : "successfulLogin",
+  "time" : {
+    "start" : 1656238542652,
+    "stop" : 1656238546494,
+    "duration" : 3842
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4d1a592d2dc373c0",
+  "name" : "creatingExistingUser",
+  "time" : {
+    "start" : 1656238604140,
+    "stop" : 1656238607330,
+    "duration" : 3190
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3c36764740101e96",
+  "name" : "receivingOrders",
+  "time" : {
+    "start" : 1656238619855,
+    "stop" : 1656238622669,
+    "duration" : 2814
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "56b8937911a8f032",
+  "name" : "unsuccessfulUpdateWithoutAuthorization[2]",
+  "time" : {
+    "start" : 1656238577520,
+    "stop" : 1656238596483,
+    "duration" : 18963
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b7414ae36e6b78fa",
+  "name" : "successfulCreating",
+  "time" : {
+    "start" : 1656238607333,
+    "stop" : 1656238608231,
+    "duration" : 898
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6f6f1f1ee6749766",
+  "name" : "successfulUpdate[0]",
+  "time" : {
+    "start" : 1656238554731,
+    "stop" : 1656238557269,
+    "duration" : 2538
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fb991100a9c4a104",
+  "name" : "CreateUserWithoutEmail",
+  "time" : {
+    "start" : 1656238608232,
+    "stop" : 1656238609292,
+    "duration" : 1060
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "19502f8ef96597fc",
+  "name" : "wrongIngredients",
+  "time" : {
+    "start" : 1656238616214,
+    "stop" : 1656238617606,
+    "duration" : 1392
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "87510dd1b8fe3fa3",
+  "name" : "burgerWithoutIngredients",
+  "time" : {
+    "start" : 1656238614616,
+    "stop" : 1656238616212,
+    "duration" : 1596
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
