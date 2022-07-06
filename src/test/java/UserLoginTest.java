@@ -1,7 +1,7 @@
+import api.client.UserClient;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import model.User;
-import model.UserLogin;
 import org.apache.http.HttpStatus;
 import org.junit.After;
 import org.junit.Before;
@@ -9,37 +9,33 @@ import org.junit.Test;
 
 import java.util.UUID;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
 public class UserLoginTest extends BaseTest {
+
+    private final UserClient userClient = new UserClient();
 
     User user;
     String accessToken;
 
     @Before
     public void createUser(){
-        this.user = Util.randomUser();
-        Response response = Util.createUser(this.user);
+        this.user = UserClient.randomUser();
+        Response response = userClient.createUser(this.user);
         response.then().assertThat().statusCode(HttpStatus.SC_OK);
         this.accessToken = response.jsonPath().getString("accessToken");
     }
 
     @After
     public void deleteUser() {
-        Util.deleteUser(user, accessToken);
+        userClient.deleteUser(user, accessToken);
     }
 
     @Test
     @DisplayName("Успешный вход")
     public void successfulLogin() {
-        UserLogin userLogin = new UserLogin(user.getEmail(), user.getPassword());
-
-        Response response = given()
-                .header("Content-type", "application/json")
-                .body(userLogin)
-                .post("/api/auth/login");
+        Response response = userClient.loginUser(user.getEmail(), user.getPassword());
 
         response.then().assertThat()
                 .statusCode(HttpStatus.SC_OK)
@@ -53,12 +49,7 @@ public class UserLoginTest extends BaseTest {
     @Test
     @DisplayName("Неуспешный вход")
     public void unsuccessfulLogin() {
-        UserLogin userLogin = new UserLogin(UUID.randomUUID().toString(), UUID.randomUUID().toString());
-
-        Response response = given()
-                .header("Content-type", "application/json")
-                .body(userLogin)
-                .post("/api/auth/login");
+        Response response = userClient.loginUser(UUID.randomUUID().toString(), UUID.randomUUID().toString());
 
         response.then().assertThat()
                 .statusCode(HttpStatus.SC_UNAUTHORIZED)

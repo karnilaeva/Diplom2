@@ -1,3 +1,4 @@
+import api.client.UserClient;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import model.User;
@@ -8,12 +9,14 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class UserCreatingTest extends BaseTest{
 
+    private final UserClient userClient = new UserClient();
+
     @Test
     @DisplayName("Успешное создание пользователя")
     public void successfulCreating() {
-        User user = Util.randomUser();
+        User user = UserClient.randomUser();
 
-        Response response = Util.createUser(user);
+        Response response = userClient.createUser(user);
 
         response.then().assertThat().statusCode(HttpStatus.SC_OK)
                 .and()
@@ -21,21 +24,21 @@ public class UserCreatingTest extends BaseTest{
 
         String accessToken = response.jsonPath().getString("accessToken");
 
-        Util.deleteUser(user, accessToken);
+        userClient.deleteUser(user, accessToken);
     }
 
     @Test
     @DisplayName("Попытка создания существующего пользователя")
     public void creatingExistingUser() {
-        User user = Util.randomUser();
+        User user = UserClient.randomUser();
 
-        Response firstResponse = Util.createUser(user);
+        Response firstResponse = userClient.createUser(user);
 
         firstResponse.then().assertThat().statusCode(HttpStatus.SC_OK)
                 .and()
                 .body("success", equalTo(true));
 
-        Response secondResponse = Util.createUser(user);
+        Response secondResponse = userClient.createUser(user);
 
         secondResponse.then().assertThat().body("message", equalTo("User already exists"))
                 .and()
@@ -43,7 +46,7 @@ public class UserCreatingTest extends BaseTest{
 
         String accessToken = firstResponse.jsonPath().getString("accessToken");
 
-        Util.deleteUser(user, accessToken);
+        userClient.deleteUser(user, accessToken);
     }
 
     @Test
@@ -51,7 +54,7 @@ public class UserCreatingTest extends BaseTest{
     public void CreateUserWithoutEmail() {
         User user = new User(null, "1234567", "John");
 
-        Response firstResponse = Util.createUser(user);
+        Response firstResponse = userClient.createUser(user);
 
         firstResponse.then().assertThat().body("message", equalTo("Email, password and name are required fields"))
                 .and()

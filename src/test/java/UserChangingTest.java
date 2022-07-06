@@ -1,3 +1,4 @@
+import api.client.UserClient;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import model.User;
@@ -11,13 +12,14 @@ import org.junit.runners.Parameterized.Parameters;
 
 import java.util.Random;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 @RunWith(Parameterized.class)
 public class UserChangingTest extends BaseTest {
 
-    private final static User user = Util.randomUser();
+    private final UserClient userClient = new UserClient();
+
+    private final static User user = UserClient.randomUser();
     private String accessToken;
     private final String newName;
     private final String newEmail;
@@ -27,7 +29,7 @@ public class UserChangingTest extends BaseTest {
         this.newEmail = newEmail;
     }
 
-    @Parameters
+    @Parameters(name = "name={0}; email={1}")
     public static Object[][] getParameters() {
         Random random = new Random();
         String randomEmail = "user" + random.nextInt(10000000) + "@yandex.ru";
@@ -41,26 +43,20 @@ public class UserChangingTest extends BaseTest {
 
     @Before
     public void createUser(){
-        Response response = Util.createUser(user);
+        Response response = userClient.createUser(user);
         response.then().assertThat().statusCode(HttpStatus.SC_OK);
         this.accessToken = response.jsonPath().getString("accessToken");
     }
 
     @After
     public void deleteUser() {
-        Util.deleteUser(user, accessToken);
+        userClient.deleteUser(user, accessToken);
     }
 
     @Test
     @DisplayName("Успешное обновление данных пользователя")
     public void successfulUpdate() {
-        User newUser = new User(newEmail, user.getPassword(), newName);
-
-        Response response = given()
-                .header("Authorization", accessToken)
-                .header("Content-type", "application/json")
-                .body(newUser)
-                .patch("/api/auth/user");
+        Response response = userClient.updateUser(accessToken, newEmail, user.getPassword(), newName);
 
         response.then().assertThat()
                 .statusCode(HttpStatus.SC_OK)
@@ -72,12 +68,7 @@ public class UserChangingTest extends BaseTest {
     @Test
     @DisplayName("Неуспешное обновление данных пользователя неавторизованным пользователем")
     public void unsuccessfulUpdateWithoutAuthorization() {
-        User newUser = new User(newEmail, user.getPassword(), newName);
-
-        Response response = given()
-                .header("Content-type", "application/json")
-                .body(newUser)
-                .patch("/api/auth/user");
+        Response response = userClient.updateUser(newEmail, user.getPassword(), newName);
 
         response.then().assertThat()
                 .statusCode(HttpStatus.SC_UNAUTHORIZED)
