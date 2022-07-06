@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import model.Order;
 import model.User;
@@ -37,7 +38,8 @@ public class OrderCreatingTest extends BaseTest {
     }
 
     @Test
-    public void successfulBurgerAuthorized() {
+    @DisplayName("Успешный заказ авторизованным пользователем")
+    public void successfulOrderAuthorized() {
         Order order = new Order(ingredients);
 
         Response response = given()
@@ -52,7 +54,8 @@ public class OrderCreatingTest extends BaseTest {
     }
 
     @Test
-    public void successfulBurgerjUnauthorized() {
+    @DisplayName("Успешный заказ неавторизованным пользователем")
+    public void successfulOrderjUnauthorized() {
         Order order = new Order(ingredients);
 
         Response response = given()
@@ -66,7 +69,8 @@ public class OrderCreatingTest extends BaseTest {
     }
 
     @Test
-    public void burgerWithoutIngredients() {
+    @DisplayName("Ошибка при создании заказа без ингредиентов")
+    public void orderWithoutIngredients() {
         Order order = new Order(List.of());
 
         Response response = given()
@@ -82,7 +86,8 @@ public class OrderCreatingTest extends BaseTest {
     }
 
     @Test
-    public void wrongIngredients() {
+    @DisplayName("Ошибка при создании заказа с некорректными ингредиентами")
+    public void wrongOrderIngredients() {
         Order order = new Order(List.of("123"));
 
         Response response = given()

@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import model.User;
 import model.UserLogin;
@@ -31,6 +32,7 @@ public class UserLoginTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Успешный вход")
     public void successfulLogin() {
         UserLogin userLogin = new UserLogin(user.getEmail(), user.getPassword());
 
@@ -49,6 +51,7 @@ public class UserLoginTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Неуспешный вход")
     public void unsuccessfulLogin() {
         UserLogin userLogin = new UserLogin(UUID.randomUUID().toString(), UUID.randomUUID().toString());
 

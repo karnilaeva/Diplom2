@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import model.User;
 import org.apache.http.HttpStatus;
@@ -51,6 +52,7 @@ public class UserChangingTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Успешное обновление данных пользователя")
     public void successfulUpdate() {
         User newUser = new User(newEmail, user.getPassword(), newName);
 
@@ -68,6 +70,7 @@ public class UserChangingTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Неуспешное обновление данных пользователя неавторизованным пользователем")
     public void unsuccessfulUpdateWithoutAuthorization() {
         User newUser = new User(newEmail, user.getPassword(), newName);
 

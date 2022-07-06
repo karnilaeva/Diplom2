@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import model.Order;
 import model.User;
@@ -41,6 +42,7 @@ public class OrdersReceivingTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Получение списка заказов")
     public void receivingOrders() {
         Response response = given()
                 .header("Authorization", accessToken)
@@ -53,6 +55,7 @@ public class OrdersReceivingTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Получение списка заказов неавторизованным пользователем")
     public void unauthorized() {
         Response response = given().get(apiPath);
 
